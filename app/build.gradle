@@ -1,4 +1,6 @@
 apply plugin: 'com.android.application'
+// 3 - Adicionar o plugin do kotlin
+apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion 28
@@ -20,7 +22,24 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.android.support:appcompat-v7:28.0.0'
+//  4 - Adicionar as dependencias do modulo
+//  Dependencia da linguagem kotlin
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+//  AppCompat
+    implementation "com.android.support:appcompat-v7:$appcompat_version"
+//  RXJava
+    implementation "io.reactivex:rxjava:1.2.5"
+//  RXAndroid para termos acesso a main thread do Android
+    implementation "io.reactivex:rxandroid:1.2.1"
+//  Retrofit
+    implementation "com.squareup.retrofit2:retrofit:2.4.0"
+//  Adapter do Retrofit para retornar objetos observaveis
+    implementation "com.squareup.retrofit2:adapter-rxjava:2.1.0"
+//  Converter do Retrofit para utilizar Gson para tratar a resposta do servidor
+    implementation "com.squareup.retrofit2:converter-gson:2.3.0"
+//  Interceptor para visualizar os logs das requisicoes do Retrofit
+    implementation "com.squareup.okhttp3:logging-interceptor:3.6.0"
+
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
