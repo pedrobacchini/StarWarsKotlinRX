@@ -2,7 +2,7 @@ package pedrobacchini.github.com.starwarskotlinrx.model.api
 
 import com.google.gson.annotations.SerializedName
 
-data class FilmResult(val result: List<Film>)
+data class FilmResult(val results: List<Film>)
 
 data class Film(val title: String,
                 @SerializedName("episode_id") val episodeId : Int,
