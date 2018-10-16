@@ -22,11 +22,11 @@ class MainActivity : AppCompatActivity() {
         listView?.adapter = movieAdapter
 
         val api = StartWarsApi()
-        api.loadMovies()
+        api.loadMoviesFull()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe ({
-                    movie -> movies.add("${movie.title} - ${movie.episodeId}")
+                    movie -> movies.add("${movie.title} - ${movie.episodeId} \n ${movie.characters.toString()}")
                 }, {
                     e -> e.printStackTrace()
                 }, {
